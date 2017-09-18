@@ -6,11 +6,19 @@
  * Time: 15:55
  */
 
-function   test1(){
-   echo  '这是测试共用方法一';
+function  renderJson($code,$message='',$data=''){
+     $ret = new \stdClass();
+     $ret ->code=$code;
+     $ret->message=$message;
+     $ret ->data =$data;
+     return response()->json($ret);
 }
 
- function   regular(){
+function test2(){
+    $ch=file_get_contents('http://test1.com/admin/classify');
+    echo $ch;
+}
+function   regular(){
 //       $pattern='/\d{4}-\d{1,2}-\d{1,2}/';
 //       $pattern='/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))
 //       (([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/';//身份证格式正则
